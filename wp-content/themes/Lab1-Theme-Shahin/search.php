@@ -1,7 +1,5 @@
 <?php
-/**
- * Template Name: Search Page
- */
+
 
 ?>
 <?php get_header(); ?>
@@ -10,7 +8,7 @@ $s=get_search_query();
 $args = array(
                 's' =>$s
             );
-    // The Query
+   
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
         _e("<h2 style='font-weight:bold;color:#000'>Search Results for: ".get_query_var('s')."</h2>");
@@ -33,5 +31,4 @@ if ( $the_query->have_posts() ) {
 <?php } ?>
 
 <?php echo paginate_links() ?>
-<!--  get_sidebar();  -->
 <?php get_footer(); ?>
