@@ -1,3 +1,4 @@
+<?php get_header();?>
 <main>
 			<section>
 				<div class="container">
@@ -5,6 +6,7 @@
 						<div id="primary" class="col-xs-12 col-md-9">
 							<h1> <?php echo get_bloginfo( 'name' ); ?></h1>
 
+<!-- Loop to display all posts with pagination -->
 							<?php 
 if ( have_posts() ) : 
 	while ( have_posts() ) : the_post(); 
@@ -30,20 +32,35 @@ if ( have_posts() ) :
 		<i class="fa fa-tag"></i> <?php the_category(', '); ?>  
 		</li>
 	</ul>
+<!-- the_excerpt method to display part of text -->	
 <p><?php the_excerpt(); ?></p>
 </article>
 <?php
 	endwhile; 
+	/* WP Error message */ 
 	else :
 		_e( 'Sorry, no posts matched your criteria.', 'textdomain' );
 endif; 
 ?>							
 
+<!-- WP pagination method-->							
+<?php the_posts_pagination( array(
+    'mid_size'  => 2,
+    'prev_text' => __( 'Föregående', 'textdomain' ),
+    'next_text' => __( 'Nästa', 'textdomain' ),
+) ); ?>
 								
 						</div>
-
+						<aside id="secondary" class="col-xs-12 col-md-3">
+							<div id="sidebar">
+							<!-- including sidebar.php -->
+							<?php get_sidebar();?>
+								
+							</div>
+						</aside>
 					</div>
 				</div>
 			</section>
 		</main>
 
+<?php get_footer();?>
