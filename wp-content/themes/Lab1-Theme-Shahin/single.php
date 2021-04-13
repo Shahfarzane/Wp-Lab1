@@ -1,7 +1,9 @@
 <?php 
 get_header();
 ?>
+
 <div class="container">
+
 	<div class="row">
 		<div id="" class="col-xs-12 col-md-9">
        <!--  WP loop to display full post -->
@@ -55,8 +57,19 @@ get_header();
          <?php next_post_link() ?>
      
 </div>
+<aside id="secondary" class="col-xs-12 col-md-3">
+							<div id="sidebar">
+							<!-- including sidebar.php -->
+							<?php get_sidebar();?>
+								
+							</div>
+						</aside>
 </div>
+
+
+
 </div>
+
 <?php
 get_footer();
 

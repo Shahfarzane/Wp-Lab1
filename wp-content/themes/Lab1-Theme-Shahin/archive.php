@@ -10,8 +10,7 @@ get_header();
 				<div class="container">
 					<div class="row">
 						<div id="primary" class="col-xs-12 col-md-9">
-<!-- Wp Loop to display archive result -->
-							<?php 
+	<?php 
 if ( have_posts() ) : 
 	while ( have_posts() ) : the_post(); 
 	?>
