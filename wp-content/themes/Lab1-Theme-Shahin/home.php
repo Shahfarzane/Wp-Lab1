@@ -21,7 +21,7 @@ if ( have_posts() ) :
 			<i class="fa fa-calendar"></i> <?php the_time(); ?>
 		</li>
 		<li>
-			<i class="fa fa-user"></i> <a href="<?php the_permalink() ?>"><?php the_author(); ?></a>
+		<i class="fa fa-user"></i> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
 		</li>
 		<style>
 		.cat{
@@ -64,3 +64,9 @@ endif;
 		</main>
 
 <?php get_footer();?>
+
+
+<style>
+li.widget ul,
+li.widget li { list-style: none; }
+</style>

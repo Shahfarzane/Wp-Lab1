@@ -14,7 +14,7 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 add_theme_support('menus');
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'slide', 1000, 400, false );
+add_theme_support('widgets');
 
 
 
@@ -50,7 +50,7 @@ array(
     register_sidebar(
         array(
             'id'            => 'sidebar-1',
-            'name'          => 'WpBlogg Sidebar',
+            'name'          => 'Sidebar',
         )
     );
 
@@ -520,4 +520,19 @@ acf_add_options_page(
         ));
         
         endif;
+
+
+        function get_related_author_posts() {
+            global $authordata, $post;
+         
+            $authors_posts = get_posts( array( 'author' => $authordata->ID, 'post__not_in' => array( $post->ID ), 'posts_per_page' => 5 ) );
+         
+            $output = '<ul>';
+            foreach ( $authors_posts as $authors_post ) {
+                $output .= '<li><a href="' . get_permalink( $authors_post->ID ) . '">' . apply_filters( 'the_title', $authors_post->post_title, $authors_post->ID ) . '</a></li>';
+            }
+            $output .= '</ul>';
+         
+            return $output;
+        }
 ?>

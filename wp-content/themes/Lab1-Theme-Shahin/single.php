@@ -27,7 +27,7 @@ get_header();
 			<i class="fa fa-calendar"></i> <?php the_time(); ?>
         </li>
 		<li>
-			<i class="fa fa-user"></i> <a href="forfattare.html"><?php the_author(); ?></a>
+    <i class="fa fa-user"></i> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
 		</li>
 
 	</ul>
@@ -75,3 +75,13 @@ get_footer();
 
 
 ?>
+
+<style>
+li.widget ul,
+li.widget.categories ul,
+li.widget li { list-style: none; };
+
+li.widget_search{
+  list-style: none;
+}
+</style>
