@@ -3,17 +3,20 @@
 <head>
 	<meta charset="UTF-8" />
 	<title><?php wp_title(' - ',TRUE,'right'); bloginfo('name'); ?></title>
-
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!-- options pages header -->
+<?php 
+$title = get_field('site_title');
 
+
+?>
 	<div id="wrap">
 		<header id="header">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
+						<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $title; ?></a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
 					<?php get_search_form(); ?>

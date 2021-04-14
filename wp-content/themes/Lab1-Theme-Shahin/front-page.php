@@ -1,12 +1,14 @@
 <!-- WP get_header method to include header.php file -->
 
 <?php get_header();
-$title = get_field('title_text');
+$title = get_field('text_title');
 $full_text = get_field('full_text');
-$image = get_sub_field('cover_image');
+$image = get_sub_field('image');
 $size = 'full'
 
 ?>
+
+
 
 
 <main>
@@ -17,7 +19,11 @@ $size = 'full'
 							<div class="hero">
                             
                             
-                            <img style=" width: 1150px;height: 500px;" src="<?php echo $image['url'];?>"/>
+											<?php 
+				$image = get_field('image');
+				if( !empty( $image ) ): ?>
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+				<?php endif; ?>
                                     <div class="text">
                                                 <h1><?php echo $title;?></h1>
                                         <p><?php echo $full_text;?></p>
@@ -29,5 +35,5 @@ $size = 'full'
 				</div>
 			</section>
 		</main>
-<!-- WP get_header method to include footer.php file -->
+
 <?php get_footer(); ?>

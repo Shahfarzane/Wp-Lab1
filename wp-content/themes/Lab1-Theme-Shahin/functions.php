@@ -30,11 +30,11 @@ function add_themes() {
     wp_enqueue_style('style');
 
 }
-add_action( 'wp_enqueue_scripts', 'add_themes' );
+add_action( 'wp_enqueue_scripts', 'add_themes');
 add_theme_support('menus');
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
-// Register WP Navigation menu
+
 register_nav_menus(
     array(
         'top-menu' => __('Top Menu', 'theme')
@@ -54,6 +54,10 @@ array(
         )
     );
 
+// function wpb_custom_new_menu() {
+//     register_nav_menu('my-custom-menu',__( 'My Custom Menu' ));
+//   }
+//   add_action( 'init', 'wpb_custom_new_menu' );
 
     add_image_size( 'slide', 1000, 400, false );
 
