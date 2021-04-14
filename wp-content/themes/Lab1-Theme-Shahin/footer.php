@@ -4,18 +4,44 @@
 				<div class="row top">
 					<div class="col-xs-12 col-sm-6 col-md-4">
 
-                    <h4><?php the_field('about_us_heading', 'option'); ?></h4>
-						<p><?php the_field('note_part1', 'option'); ?></p>
-						<p><?php the_field('note_part2', 'option'); ?></p>
+                    <h4><?php the_field('about_title', 'option'); ?></h4>
+						<p><?php the_field('about', 'option'); ?></p>
+						<p><?php the_field('about_second_paragraph', 'option'); ?></p>
 
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
+
+					<h4><?php the_field('kontakt_uppgifter_text', 'option'); ?></h4>
+					<p>
+						<?php the_field('company_name', 'option');?><br />
+						<?php the_field('address', 'option');?><br />
+						<?php the_field('postcode', 'option');?>
+						</p>
+						<p>
+						<?php the_field('tell', 'option');?><br/>
+						<?php the_field('emailtext', 'option');?> <a><?php the_field('email', 'option');?></a>
+						</p>
 
 
 					</div>
 					<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
 						<h4>Social media</h4>
 						<ul class="social">
+
+						<ul class="social">
+							<li>
+								<i class="fa fa-facebook"></i> <a href=""><?php the_field('facebook', 'option');?></a>
+							</li>
+							<li>
+								<i class="fa fa-twitter"></i> <a href=""><?php the_field('twitter', 'option');?></a>
+							</li>
+							<li>
+								<i class="fa fa-instagram"></i> <a href=""><?php the_field('instagram', 'option');?></a>
+							</li>
+							<li>
+								<i class="fa fa-linkedin"></i> <a href=""><?php the_field('linkedin', 'option');?></a>
+							</li>
+						</ul>
 
 						</ul>
 					</div>
