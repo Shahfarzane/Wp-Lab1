@@ -4,7 +4,9 @@
 				<div class="container">
 					<div class="row">
 						<div id="primary" class="col-xs-12 col-md-9">
-							<h1> <?php echo get_bloginfo( 'name' ); ?></h1>
+						<?php
+						$our_title = get_the_title( get_option('page_for_posts', true) ); ?>
+							<h1> <?php echo $our_title; ?></h1>
 
 <!-- Loop to display all posts with pagination -->
 							<?php 
@@ -18,7 +20,7 @@ if ( have_posts() ) :
 	</h2>
 	<ul class="meta">
 		<li>
-			<i class="fa fa-calendar"></i> <?php the_time(); ?>
+			<i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
 		</li>
 		<li>
 		<i class="fa fa-user"></i> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
@@ -66,7 +68,3 @@ endif;
 <?php get_footer();?>
 
 
-<style>
-li.widget ul,
-li.widget li { list-style: none; }
-</style>

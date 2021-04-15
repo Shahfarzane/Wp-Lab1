@@ -1,5 +1,6 @@
 <?php
 
+
 function my_scripts_method(){
 
     wp_register_script('script',get_template_directory_uri() .'/js/script.js', array(), 1, 'all');
@@ -7,18 +8,8 @@ function my_scripts_method(){
     wp_enqueue_script( 'jquery' ); 
 
 }
-add_action('wp_enqueue_scripts', 'my_scripts_method');
 
-
-
-
-add_theme_support('menus');
-add_theme_support( 'post-thumbnails' );
-add_theme_support('widgets');
-
-
-
-function add_themes() {
+function add_css_files() {
     wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '1.1', 'all');
     wp_enqueue_style('bootstrap');
 
@@ -30,10 +21,19 @@ function add_themes() {
     wp_enqueue_style('style');
 
 }
-add_action( 'wp_enqueue_scripts', 'add_themes');
-add_theme_support('menus');
-add_theme_support('post-thumbnails');
 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+add_action( 'wp_enqueue_scripts', 'add_css_files');
+
+add_theme_support('menus');
+add_theme_support( 'post-thumbnails' );
+add_theme_support('widgets');
+
+add_image_size( 'single-post-thumbnail', 786, 442 );
+
+
+
+//registering navbars with this functions
 
 register_nav_menus(
     array(
@@ -59,7 +59,7 @@ array(
 //   }
 //   add_action( 'init', 'wpb_custom_new_menu' );
 
-    add_image_size( 'slide', 1000, 400, false );
+
 
 
 acf_add_options_page(
@@ -535,4 +535,3 @@ acf_add_options_page(
          
             return $output;
         }
-?>

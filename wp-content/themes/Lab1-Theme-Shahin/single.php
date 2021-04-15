@@ -19,47 +19,50 @@ get_header();
      <?php while (have_posts()) : the_post(); ?>
        <!-- Do your post header stuff here for single post-->
        <article style="border-top:solid 1px #ccc; margin:30px auto;">
+               <!-- Diplay thumbnail -->
+
+       <?php the_post_thumbnail( array(786, 442 ) ); ?>
        <div class="row">
         <div class="col-md-6">
-        <h2 class="title"><?php the_title(); ?></h2>
+        
+        <h2 class="title"><?php the_title(); //post title ?></h2>
        <ul class="meta">
 		<li>
-			<i class="fa fa-calendar"></i> <?php the_time(); ?>
+			<i class="fa fa-calendar"></i> <?php echo get_the_date(); //post date ?>
         </li>
 		<li>
     <i class="fa fa-user"></i> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
 		</li>
-
+		<li class="cat">
+		<i class="fa fa-tag"></i> <?php the_category(', '); ?>  
+		</li>
 	</ul>
         </div>
         <div class="col-md-6" >
-        <!-- Diplay thumbnail image -->
-        <?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignright' ) ); ?>
+       
         </div>
        </div>
        
   
-         <p> <?php the_content() ?></p>
+         <p> <?php the_content() //shows the post content?></p>
        </article>
 
-       <!-- Do your post footer stuff here for single post-->
      <?php endwhile; ?>
 
   <?php endif; ?>
 
 <?php else : ?>
-     <!-- Stuff to do if there are no posts-->
 
 <?php endif; ?>
 
-       <!-- Pagination -->
+       <!-- shows the page pagination-->
          <?php previous_post_link()?>        	  
          <?php next_post_link() ?>
      
 </div>
 <aside id="secondary" class="col-xs-12 col-md-3">
 							<div id="sidebar">
-							<!-- including sidebar.php -->
+							<!-- gets the sidebar -->
 							<?php get_sidebar();?>
 								
 							</div>
@@ -71,17 +74,13 @@ get_header();
 </div>
 
 <?php
+// getting information from footer.php
 get_footer();
 
 
 ?>
 
 <style>
-li.widget ul,
-li.widget.categories ul,
-li.widget li { list-style: none; };
 
-li.widget_search{
-  list-style: none;
-}
+
 </style>
