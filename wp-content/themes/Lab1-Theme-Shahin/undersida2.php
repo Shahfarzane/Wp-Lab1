@@ -6,7 +6,7 @@ $full_text = get_field('full_text');
 ?>
 
 
-<main>
+
 			<section>
 				<div class="container">
 					<div class="row">

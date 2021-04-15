@@ -7,17 +7,29 @@ $full_text = get_field('full_text');
 ?>
 
 
-<main>
-			<section>
-				<div class="container">
-					<div class="row">
-						<div id="primary" class="col-xs-12">
-                        <h1><?php echo $title;?></h1>
-                           <p> <?php echo $full_text;?> </p>
-						</div>
-					</div>
-				</div>
-			</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div id="primary" class="col-xs-12">
+                <?php // Startar loop
+                    while(have_posts()) {
+                        the_post();
+                ?>
+
+                <h1>
+                    <?php the_title();?>
+                </h1>
+                <?php the_content();?>
+                
+                
+                <?php // Stänger loop
+                    } 
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
 		</main>
         
 <?php get_footer();?>

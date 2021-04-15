@@ -1,5 +1,4 @@
 <?php get_header();?>
-<main>
 			<section>
 				<div class="container">
 					<div class="row">
@@ -45,13 +44,15 @@ if ( have_posts() ) :
 endif; 
 ?>							
 
-<!-- WP pagination method-->							
-<?php the_posts_pagination( array(
-    'mid_size'  => 2,
-    'prev_text' => __( 'Föregående', 'textdomain' ),
-    'next_text' => __( 'Nästa', 'textdomain' ),
-) ); ?>
-								
+					
+<nav class="navigation pagination">
+
+					<?php the_posts_pagination(array( // gets the pagination if there are more than one page
+						'mid_size'  => 2,
+						'prev_text' => __('Föregående', 'textdomain'),
+						'next_text' => __('Nästa', 'textdomain'),
+					)); ?>
+</nav>			
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
 							<div id="sidebar">

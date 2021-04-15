@@ -7,7 +7,6 @@ $full_text = get_field('full_text');
 $image = get_field('image');
 ?>
 
-<main>
 			<section>
 				<div class="container">
 					<div class="row">
@@ -24,4 +23,4 @@ $image = get_field('image');
 		</main>
 
         
-<?php get_footer();?>
+<?php get_footer(); //get the footer from footer.php?>
