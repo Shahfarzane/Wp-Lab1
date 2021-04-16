@@ -21,7 +21,7 @@ $title = get_field('site_title');
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-						<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $title; ?></a>
+						<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo('name'); ?></a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
 					<!-- wordpress method to show search bar -->
@@ -44,7 +44,7 @@ $title = get_field('site_title');
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-					<!-- loading the menu -->
+					<!-- loading the  -->
 					<?php	
 						wp_nav_menu(
                             array(
