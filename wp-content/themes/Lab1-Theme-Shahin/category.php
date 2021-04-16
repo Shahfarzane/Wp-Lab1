@@ -49,14 +49,9 @@ get_header();
 				endif;
 				?>
 
-				<nav class="navigation pagination">
-
-					<?php the_posts_pagination(array( // gets the pagination if there are more than one page
-						'mid_size'  => 2,
-						'prev_text' => __('Föregående', 'textdomain'),
-						'next_text' => __('Nästa', 'textdomain'),
-					)); ?>
-				</nav>
+<nav class="pagination">
+    <?php pagination_bar(); // function to call the pagination?>
+</nav>
 			</div>
 			<aside id="secondary" class="col-xs-12 col-md-3">
 				<div id="sidebar">

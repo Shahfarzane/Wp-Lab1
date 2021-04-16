@@ -18,12 +18,12 @@
 
             <div class="col-xs-12 col-sm-8 col-md-6">
                 <h1>
-                    <?php the_title();?>
+                    <?php the_title(); //title of the page?>
                 </h1>
-                <?php the_content();?>
+                <?php the_content(); //content of the page?>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-6">
-                <img src="<?= get_the_post_thumbnail_url();?>" />
+                <img src="<?= get_the_post_thumbnail_url(); //get the image of the post?>" />
             </div>
 
         <?php // finishing the loop
@@ -35,4 +35,4 @@
 </section>
 
 </main>
-<?php get_footer() ?>
+<?php get_footer()  //getting the footer from footer.php?>

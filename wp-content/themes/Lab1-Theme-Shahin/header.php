@@ -2,11 +2,16 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
+	<!-- getting the websites title -->
 	<title><?php wp_title(' - ',TRUE,'right'); bloginfo('name'); ?></title>
+	<!-- creates a hook -->
 	<?php wp_head(); ?>
 </head>
+<!-- displays the class for body -->
 <body <?php body_class(); ?>>
 <?php 
+
+// getting the title field from ACF
 $title = get_field('site_title');
 
 
@@ -19,6 +24,7 @@ $title = get_field('site_title');
 						<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $title; ?></a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
+					<!-- wordpress method to show search bar -->
 					<?php get_search_form(); ?>
 					</div>
 					<div class="col-xs-4 text-right visible-xs">
@@ -38,6 +44,7 @@ $title = get_field('site_title');
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
+					<!-- loading the menu -->
 					<?php	
 						wp_nav_menu(
                             array(

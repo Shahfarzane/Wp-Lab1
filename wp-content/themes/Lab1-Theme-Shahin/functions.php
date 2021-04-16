@@ -2,7 +2,7 @@
 
 
 function my_scripts_method(){
-// registering the CSS and js files 
+// registering the js files 
     wp_register_script('script',get_template_directory_uri() .'/js/script.js', array(), 1, 'all');
     wp_enqueue_script('script');
     wp_enqueue_script( 'jquery' ); 
@@ -10,7 +10,7 @@ function my_scripts_method(){
 }
 
 function add_css_files() {
-    // registering the CSS and js files 
+    // registering the CSS  files 
     wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '1.1', 'all');
     wp_enqueue_style('bootstrap');
 
@@ -50,7 +50,7 @@ array(
 )
 );
 
-// Register Side bar
+// Registering the Side bar
     register_sidebar(
         array(
             'id'            => 'sidebar-2',
@@ -548,3 +548,24 @@ acf_add_options_page(
          
             return $output;
         }
+
+
+/**
+* Pagination Bar - customized so it looks like the one in the html files
+**/
+function pagination_bar() {
+    global $wp_query;
+    $total_pages = $wp_query->max_num_pages;
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => 'page/%#%',
+            'current' => $current_page,
+            'prev_text' => __('Föregående', 'textdomain'),
+            'next_text' => __('Nästa', 'textdomain'),
+        ));
+    }
+}
+
+?>

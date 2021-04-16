@@ -1,9 +1,9 @@
 <!-- Template Name: Undersida 3
 -->
 
-<?php get_header();
+<?php get_header(); //get the header
 $title = get_field('text_title');
-$full_text = get_field('full_text');
+$full_text = get_field('full_text'); //ACF fields 
 ?>
 
 
@@ -32,4 +32,4 @@ $full_text = get_field('full_text');
 </section>
 		</main>
         
-<?php get_footer();?>
+<?php get_footer(); //getting the footer?>

@@ -1,8 +1,8 @@
 
 <!-- Template Name: Undersida 4 
  -->
- <?php get_header();
-$title = get_field('text_title');
+ <?php get_header(); // getting the Header
+$title = get_field('text_title'); //acf field
 $full_text = get_field('full_text');
 $image = get_field('image');
 ?>

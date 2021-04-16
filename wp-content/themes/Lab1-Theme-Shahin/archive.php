@@ -2,7 +2,7 @@
 // gets header from header.php
 get_header();
 ?>
-<main>
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -10,7 +10,7 @@ get_header();
 					<!-- gets the description of the archive like showing the month and year -->
 					<h1><?php the_archive_title(); ?></h1>
 					<h1><?php the_archive_description(); ?></h1>
-		<?php
+					<?php
 					// loops through the posts and load the posts if there are any/
 					if (have_posts()) :
 						while (have_posts()) : the_post();
@@ -20,8 +20,7 @@ get_header();
 								<?php the_post_thumbnail(array(786, 442)); ?>
 								<h2 class="title">
 									<!-- gets the post link -->
-									<a href="<?php the_permalink() ?>"><?php the_title(); // gets the title of the post
-																		?></a>
+									<a href="<?php the_permalink() ?>"><?php the_title(); // gets the title of the post?></a>
 								</h2>
 								<ul class="meta">
 									<li>
@@ -36,9 +35,8 @@ get_header();
 										}
 									</style>
 									<li class="cat">
-										<i class="fa fa-tag"></i> <?php the_category(', ') //shows post category; ?>
+										<i class="fa fa-tag"></i> <?php the_category(', ') //shows post category;?>
 									</li>
-
 
 								</ul>
 
@@ -52,29 +50,23 @@ get_header();
 					endif;
 					?>
 
-					<?php the_posts_pagination(array( // gets the pagination if there are more than one page
-						'mid_size'  => 2,
-						'prev_text' => __('Föregående', 'textdomain'),
-						'next_text' => __('Nästa', 'textdomain'),
-					)); ?>
+					<nav class="pagination">
+						<?php pagination_bar(); // function to call the pagination
+						?>
+					</nav>
 				</div>
 				<aside id="secondary" class="col-xs-12 col-md-3">
 					<div id="sidebar">
 						<?php get_sidebar(); //loads the sidebar 
 						?>
-						<ul role="navigation">
-							<li class="pagenav">
 
-
-
-					</div>
 				</aside>
 			</div>
 		</div>
 	</section>
 </main>
 
- 
+
 <?php
 get_footer();
 // gets the footer

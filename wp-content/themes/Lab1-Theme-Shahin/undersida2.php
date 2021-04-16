@@ -1,6 +1,7 @@
 <!-- Template Name: Undersida 2 
  -->
- <?php get_header();
+ <?php get_header();//gets the header
+// getting the fields from ACF
 $title = get_field('text_title');
 $full_text = get_field('full_text');
 ?>
@@ -16,7 +17,7 @@ $full_text = get_field('full_text');
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3 col-md-pull-9">
 						<?php	
-						wp_nav_menu(
+						wp_nav_menu( //loading the menu 
                             array(
                                 'theme_location' => 'side-menu',
                                 'container' => 'ul',
@@ -31,4 +32,4 @@ $full_text = get_field('full_text');
 			</section>
 		</main>
         
-<?php get_footer();?>
+<?php get_footer(); //getting the footer?>
